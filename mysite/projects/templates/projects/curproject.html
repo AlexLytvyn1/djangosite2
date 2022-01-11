@@ -1,0 +1,16 @@
+{% extends 'projects/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<h1>Ваши  проекты</h1>
+
+        <div class = "alert alert-info mt-2">
+            <h3>Название проекта: {{curproj.project_name}}</h3>
+             Описание проекта: {{curproj.project_description|safe}}
+        </div>
+
+
+{% endblock %}

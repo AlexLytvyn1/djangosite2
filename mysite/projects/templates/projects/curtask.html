@@ -1,0 +1,20 @@
+{% extends 'projects/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<h1>Ваши  задачи</h1>
+
+        <div class = "alert alert-info mt-2">
+            <h3>Проект: {{curtask.task_project}}</h3>
+             <p>Тема задания: {{curtask.task_theme}}</p>
+             <p>Описание задания: {{curtask.task_description}}</p>
+             <p>Автор: {{curtask.task_author}}</p>
+             <p>Исполнитель: {{curtask.task_executor}}</p>
+             <p>Дата начала задания: {{curtask.task_datestart}} </p>
+             <p>Дата окончания задания: {{curtask.task_dateend}} </p>
+        </div>
+
+{% endblock %}

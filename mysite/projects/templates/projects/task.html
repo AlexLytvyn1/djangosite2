@@ -1,0 +1,18 @@
+{% extends 'projects/base.html' %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Задачи</h1>
+    {% for t in task %}
+        <div class = "alert alert-info mt-2">
+             <h4>Проект: {{t.task_project}}</a></h4>
+             <p>Тема задания: <a href ="{% url 'project:curtask' t.id %}">{{t.task_theme}}</a></p>
+             <p>Описание задания: {{t.task_description}}</p>
+             <p>Автор: {{t.task_author}}</p>
+             <p>Исполнитель: {{t.task_executor}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
