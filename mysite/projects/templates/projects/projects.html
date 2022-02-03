@@ -5,11 +5,14 @@
 
 
 {% block content %}
-    <h1>Список проектов</h1>
+    <h1>Список ваших проектов</h1>
     {% for p in proj %}
         <div class = "alert alert-info mt-2">
             <h4> Название проекта: <a href ="{% url 'project:curproj' p.pk %}">{{p.project_name}}</a></h4>
             Описание проекта:{{p.project_description|safe}}
         </div>
     {% endfor %}
+
+
+
 {% endblock %}

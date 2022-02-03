@@ -2,19 +2,45 @@
 {% block title %}
 {{ title }}
 {% endblock %}
-
+{% load static %}
 
 {% block content %}
 <h1>Ваши  задачи</h1>
 
         <div class = "alert alert-info mt-2">
-            <h3>Проект: {{curtask.task_project}}</h3>
+            <h2>Проект: {{curtask.task_project}}</h2>
              <p>Тема задания: {{curtask.task_theme}}</p>
              <p>Описание задания: {{curtask.task_description}}</p>
-             <p>Автор: {{curtask.task_author}}</p>
-             <p>Исполнитель: {{curtask.task_executor}}</p>
+             <p>Тип задания: {{curtask.task_type}}</p>
+             <p>Приоритет задания: {{curtask.task_priority}}</p>
+             <p>Время на задание(в часах): {{curtask.task_spenttime}}</p>
              <p>Дата начала задания: {{curtask.task_datestart}} </p>
              <p>Дата окончания задания: {{curtask.task_dateend}} </p>
+             <p>Автор: {{curtask.task_author}}</p>
+             <p>Исполнитель: {{curtask.task_executor}}</p>
         </div>
 
+<form action="{%url 'project:changecurtask'  curtask.id %}" >
+  <button id ="but" ><img class="editimg" src="{% static 'images/edit.png' %}" ></button>
+</form>
+
+<div class = "alert alert-secondary mt-2">
+
+            <h3>Список комментариев: </h3>
+        {%for com in comment%}
+             <p>Автор: {{ com.comment_author }}</p>
+             <p>Текст комментария: {{com.comment_description}}</p>
+             <p>Дата комментария: {{com.comment_date}}</p>
+             <br>
+        {%endfor%}
+
+</div>
+
+<form  method="post">
+            {% csrf_token %}
+       <table>
+            {{ form }}
+       </table><br>
+            <input type="submit" value="Отправить" />
+</form><br>
 {% endblock %}

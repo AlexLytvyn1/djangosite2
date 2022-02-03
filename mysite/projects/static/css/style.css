@@ -1,0 +1,55 @@
+*{
+padding 0;
+margin 0;
+}
+
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+footer {
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 5px; /* Поля вокруг текста */
+    background: #212529; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+
+   }
+
+
+.container{
+padding-bottom: 70px;
+}
+
+.gimg{
+height: auto;
+width: auto;
+    }
+
+.uimg{
+    height : 40px ;
+    width: 50px ;
+    }
+td {padding: 5px 0;}
+
+.editimg{
+    height : 30px ;
+    width: 30px ;
+
+}
+#but{
+background-color: white;
+}

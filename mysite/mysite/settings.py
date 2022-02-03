@@ -16,16 +16,27 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+STATIC_URL = '/static/'
+STATIC_ROOT  =  os.path.join(BASE_DIR, 'static')
+
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&1h&l!kz0_f-7htnzy9r!8d+@^m&vx!r4&(x&xl3#+_4c4#9qk'
+
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+
+#'django-insecure-&1h&l!kz0_f-7htnzy9r!8d+@^m&vx!r4&(x&xl3#+_4c4#9qk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']  # 127.0.0.1
+ALLOWED_HOSTS = [ ]  # 127.0.0.1
 
 
 # Application definition
@@ -128,23 +139,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-PROJECT_ROOT  =  os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =  os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-import dj_database_url
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)

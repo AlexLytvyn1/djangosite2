@@ -4,10 +4,13 @@
 {% endblock %}
 
 {% block content %}
+{% load static %}
      <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Nice to meet {{ user.get_username }}!</h1>
+
+            <img class="gimg" src="{% static 'images/welcome.jpg' %}" />
       </div>
     </div>
   </section>
